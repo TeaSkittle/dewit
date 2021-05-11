@@ -1,6 +1,6 @@
 # todo
 
-todo is a CLI todo list written in D
+todo is a CLI to-do list written in D
 
 ## Installation
 
