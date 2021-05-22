@@ -2,7 +2,7 @@
 
 ![dewit_meme.](images/dewit_meme.jpg)
 
-dewit is a CLI to-do list written in D and is aimed at both Linux and Windows systems. *Designed to be pratical, simple, and cross platform.*
+dewit is a CLI to-do list written in D and is aimed at both Linux and Windows systems. *Designed to be pratical, simple, and cross platform.* This is not an app a Jedi would use...
 
 This project was inspired by [Taskwarrior](https://taskwarrior.org/) which is a fantastic app for those wanting a [Getting Things Done (GTD)](https://gettingthingsdone.com/) styled to-do app that is feature packed. But I wanted something that worked similar to Taskwarrior, yet features:
 
@@ -20,14 +20,14 @@ This project was inspired by [Taskwarrior](https://taskwarrior.org/) which is a 
 ## Usage
 
 ```Bash
-$ todo a Make bed   # Add task
-$ todo l            # list tasks
+$ dewit a Make bed   # Add task
+$ dewit l            # list tasks
 
 ID  Task
 --------
 1   Make bed
 
-$ todo d 1          # Delete task/mark task as complete
+$ dewit d 1          # Delete task/mark task as complete
 ```
 
 ## Contributing
