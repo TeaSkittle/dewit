@@ -1,5 +1,7 @@
 # dewit
 
+![dewit_meme.](dewit_meme.jpg)
+
 todo is a CLI to-do list written in D and is aimed at both Linux and Windows systems. *Designed to be pratical, simple, and cross platform.*
 
 This project was inspired by [Taskwarrior](https://taskwarrior.org/) which is a fantastic app for those wanting a [Getting Things Done (GTD)](https://gettingthingsdone.com/) styled to-do app that is feature packed. But I wanted something that worked similar to Taskwarrior, yet features:
