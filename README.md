@@ -1,4 +1,4 @@
-# todo
+# dewit
 
 todo is a CLI to-do list written in D and is aimed at both Linux and Windows systems. *Designed to be pratical, simple, and cross platform.*
 
