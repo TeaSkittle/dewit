@@ -3,7 +3,10 @@ import std.stdio;
 import std.string;
 import std.conv;
 import std.file;
-import std.exception;
+
+// TODO: - Add OS detection
+//       - Figure out placement of fiels on FS
+//       - Create man page
 
 int main( string[] args ){
   int id, opt;
@@ -25,55 +28,53 @@ void parseOptions ( int opt, int id, string[] args, File f ) {
       writeln( "\nID  Task" );
       writeln( "--------" );
       while( !f.eof() ) {
-        string line = strip( f.readln() );
-        writef( "%d   %s\n", lineNumber, line );
-        lineNumber++;
-        } f.close();
+        string line = f.readln();
+        if ( line != null ) {
+          writef( "%d   %s", lineNumber, line );
+          lineNumber++;
+        } else {
+          writef( "\n" );
+        }
+      } f.close();
     } else {
       writeln( "No tasks in list" );
     }
-  }
-  else if ( opt == 1 ) {                         // Add task
+  } else if ( opt == 1 ) {                         // Add task
     f = File( "tasks","a" );
     for ( int i = 2; i < args.length; i++ ) {
       f.write( args[i] );
       f.write( " " );
     } f.write( "\n" );
     f.close();
-  }
-  else if ( opt == 2 ) {                         // Delte a task
+  } else if ( opt == 2 ) {                         // Delte a task
     if ( args.length < 3 ) {
       writeln( "usage: todo d [ID]" );
     } else {
       id = to!int( args[2] );
       if ( exists( "tasks" )) {
         int lineNumber = 1;
-        //
-        //File newFile = File( "newTasks", "w" );
-        //
-        // Finally got the task to remove
-        //  TODO - Output to newTasks instead of stdout
-        //       - Remove old file( tasks )
-        //       - Rename newTasks to tasks
-        //       - Add bounds checking
-        // 
+        File newFile = File( ".newTasks", "w" );
         f = File( "tasks", "r" );
         while( !f.eof() ) {
           if ( lineNumber < id ) {
-            string line = strip( f.readln() );
-            writef( "%s\n", line );
+            string line = f.readln();
+            newFile.writef( "%s", line );
             lineNumber++;
           } else if ( lineNumber == id ) {
-            string line = strip( f.readln() );
-            //writef( "---%s--\n", line );
+            string line = f.readln();
             lineNumber++;
           } else if ( lineNumber > id ) {
-            string line = strip( f.readln() );
-            writef( "%s\n", line );
+            string line = f.readln();
+            newFile.writef( "%s", line );
             lineNumber++;
-          } 
-        } f.close();
-        writef( "Deleted task %d\n", id );
+          }
+        } if ( id > lineNumber || id < 1 ) {
+          writefln( "Error: task ID out of bounds" );
+        } else {
+          writef( "Deleted task %d\n", id );
+        } newFile.close();
+        f.close(); 
+        copy( ".newTasks", "tasks" );
       } else {
         writeln( "No tasks in list" );
       }
