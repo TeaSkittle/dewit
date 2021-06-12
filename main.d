@@ -5,7 +5,7 @@ import std.conv;
 import std.file;
 
 // TODO: - Add OS detection
-//       - Figure out placement of fiels on FS
+//       - Figure out placement of files on FS
 //       - Create man page
 
 int main( string[] args ){
