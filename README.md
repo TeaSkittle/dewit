@@ -1,5 +1,9 @@
 # dewit
 
+**THIS PROJECT HAS BEEN ABANDONED**
+
+Was an experiment with D and I ended up not being a fan of the language, repo is now closed
+
 ![dewit_meme.](images/dewit_meme.jpg)
 
 dewit is a CLI to-do list written in D and is aimed at both Linux and Windows systems. *Designed to be pratical, simple, and cross platform.* This is not an app a Jedi would use...
@@ -13,9 +17,6 @@ This project was inspired by [Taskwarrior](https://taskwarrior.org/) which is a 
 * Written in [D](https://dlang.org/)
 * UNLIMITED POWER!
 
-## Installation
-
-**Will add section later, after main code is complete**
 
 ## Usage
 
